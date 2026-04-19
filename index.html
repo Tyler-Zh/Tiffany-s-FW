@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>送别 Tiffany Xu · 留下你的祝福</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-cream: #FFF8F0;
+    --warm-peach: #FFECD2;
+    --warm-coral: #FF9A76;
+    --warm-terracotta: #D4725E;
+    --warm-gold: #E8A87C;
+    --warm-amber: #F0A500;
+    --warm-brown: #6B4226;
+    --warm-rose: #FFB6B9;
+    --warm-blush: #FAE3D9;
+    --text-dark: #3D2C2E;
+    --text-soft: #6B5B5E;
+    --card-bg: rgba(255, 255, 255, 0.85);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--warm-cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .bg-decoration {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .bg-decoration::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(255,154,118,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .bg-decoration::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,182,185,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+  }
+
+  /* ── Hero Section ── */
+  .hero {
+    text-align: center;
+    padding: 48px 10px 32px;
+  }
+  .hero-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--warm-brown);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .hero .subtitle {
+    font-size: 15px;
+    color: var(--text-soft);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .hero .description {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.8;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(232, 168, 124, 0.2);
+  }
+
+  /* ── Form Card ── */
+  .form-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 28px 24px;
+    margin-top: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(232, 168, 124, 0.15);
+    box-shadow: 0 8px 32px rgba(107, 66, 38, 0.06);
+  }
+  .form-card h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--warm-brown);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  .form-group label .required {
+    color: var(--warm-coral);
+    margin-left: 2px;
+  }
+  .form-group label .optional {
+    color: var(--text-soft);
+    font-weight: 300;
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(232, 168, 124, 0.3);
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: rgba(255,255,255,0.7);
+    color: var(--text-dark);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-appearance: none;
+    outline: none;
+  }
+  .form-group input[type="text"]:focus,
+  .form-group textarea:focus {
+    border-color: var(--warm-coral);
+    box-shadow: 0 0 0 3px rgba(255,154,118,0.12);
+  }
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #c4a89a;
+  }
+
+  /* ── Photo Upload ── */
+  .photo-section {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(232, 168, 124, 0.3);
+  }
+  .photo-section h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--warm-brown);
+    margin-bottom: 6px;
+  }
+  .photo-section .hint {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .upload-area {
+    border: 2px dashed rgba(232, 168, 124, 0.35);
+    border-radius: 16px;
+    padding: 28px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .upload-area:hover,
+  .upload-area.drag-over {
+    border-color: var(--warm-coral);
+    background: rgba(255,154,118,0.04);
+  }
+  .upload-area input[type="file"] {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .upload-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .upload-text {
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+  .upload-text strong {
+    color: var(--warm-coral);
+  }
+
+  .photo-preview {
+    display: none;
+    margin-top: 16px;
+    position: relative;
+  }
+  .photo-preview img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .photo-preview .remove-photo {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  /* ── Submit Button ── */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 28px;
+    background: linear-gradient(135deg, var(--warm-coral), var(--warm-terracotta));
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(212,114,94,0.3);
+    letter-spacing: 1px;
+  }
+  .submit-btn:active {
+    transform: scale(0.97);
+  }
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ── Success / Preview ── */
+  .success-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(61, 44, 46, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .success-overlay.visible {
+    display: flex;
+  }
+  .success-card {
+    background: var(--warm-cream);
+    border-radius: 24px;
+    padding: 32px 24px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    animation: popIn 0.4s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .success-icon {
+    font-size: 52px;
+    margin-bottom: 12px;
+  }
+  .success-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--warm-brown);
+    margin-bottom: 8px;
+  }
+  .success-card p {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .preview-block {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    border: 1px solid rgba(232, 168, 124, 0.2);
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    word-break: break-word;
+  }
+  .preview-block .preview-name {
+    font-weight: 600;
+    color: var(--warm-brown);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .preview-block .preview-msg {
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+  }
+  .preview-block .preview-photo-info {
+    font-size: 13px;
+    color: var(--text-soft);
+    padding-top: 10px;
+    border-top: 1px solid rgba(232,168,124,0.15);
+  }
+  .preview-block .preview-photo-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  .copy-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, var(--warm-coral), var(--warm-terracotta));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 16px rgba(212,114,94,0.25);
+    margin-bottom: 10px;
+  }
+  .copy-btn:active {
+    transform: scale(0.95);
+  }
+  .close-btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: transparent;
+    color: var(--text-soft);
+    border: 1.5px solid rgba(107,66,38,0.2);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+
+  .copy-toast {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--warm-brown);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 2000;
+    pointer-events: none;
+  }
+  .copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Photo reminder ── */
+  .photo-reminder {
+    background: rgba(255,154,118,0.08);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    display: none;
+  }
+  .photo-reminder.visible {
+    display: block;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 32px 20px 20px;
+    font-size: 12px;
+    color: #c4a89a;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 24px; }
+    .form-card { padding: 22px 18px; }
+    .container { padding: 0 14px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-decoration"></div>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-icon">🌸</div>
+    <h1>Farewell, Tiffany</h1>
+    <p class="subtitle">留下你的祝福 · Leave Your Blessing</p>
+    <p class="description">
+      亲爱的 Wayfair 小伙伴们，<br>
+      Tiffany Xu 即将开启人生新旅程。<br>
+      请留下你的名字和一句真诚的祝福，<br>
+      也欢迎分享一张你和 Tiffany 的珍贵合照或她的照片。<br>
+      我们会把大家的心意汇集成册，作为最温暖的送别礼物。
+    </p>
+  </section>
+
+  <!-- Form -->
+  <div class="form-card">
+    <h2>写下你的祝福</h2>
+    <form id="blessingForm" autocomplete="off">
+      <div class="form-group">
+        <label>你是谁 <span class="required">*</span></label>
+        <input type="text" id="senderName" placeholder="你的名字 / Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label>一句祝福 <span class="required">*</span></label>
+        <textarea id="blessingMsg" placeholder="写下你想对 Tiffany 说的话..." required></textarea>
+      </div>
+
+      <!-- Photo Section -->
+      <div class="photo-section">
+        <h3>分享一张照片 <span class="optional">（可选）</span></h3>
+        <p class="hint">
+          Tiffany 的个人照或和她的合照都可以。<br>
+          请注明大概时间和这张照片背后的故事。
+        </p>
+
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="photoInput" accept="image/*">
+          <div class="upload-icon">📷</div>
+          <p class="upload-text">
+            <strong>点击选择照片</strong><br>
+            支持 JPG / PNG / HEIC
+          </p>
+        </div>
+
+        <div class="photo-preview" id="photoPreview">
+          <img id="previewImg" src="" alt="preview">
+          <button type="button" class="remove-photo" id="removePhoto">&times;</button>
+        </div>
+
+        <div class="form-group" id="photoMetaGroup" style="display:none; margin-top:16px;">
+          <label>照片是什么时候的？背后有什么故事？</label>
+          <textarea id="photoMeta" placeholder="例如：2024年Team Outing，我们第一次一起爬山..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">提交祝福 ✨</button>
+    </form>
+  </div>
+
+  <p class="footer">
+    With love from Wayfair family 💛
+  </p>
+</div>
+
+<!-- Success Overlay -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">💌</div>
+    <h2>感谢你的祝福！</h2>
+    <p>
+      请复制以下内容，发送给祝福征集人。<br>
+      <span id="photoReminder" class="photo-reminder">
+        📸 你上传了照片，请记得<strong>同时把照片原图</strong>也通过微信发送给征集人哦！
+      </span>
+    </p>
+    <div class="preview-block" id="previewBlock"></div>
+    <button class="copy-btn" id="copyBtn">复制祝福文字</button>
+    <button class="close-btn" id="closeBtn">继续编辑</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="copy-toast" id="copyToast">已复制到剪贴板 ✓</div>
+
+<script>
+(function() {
+  const form = document.getElementById('blessingForm');
+  const photoInput = document.getElementById('photoInput');
+  const uploadArea = document.getElementById('uploadArea');
+  const photoPreview = document.getElementById('photoPreview');
+  const previewImg = document.getElementById('previewImg');
+  const removePhotoBtn = document.getElementById('removePhoto');
+  const photoMetaGroup = document.getElementById('photoMetaGroup');
+  const successOverlay = document.getElementById('successOverlay');
+  const previewBlock = document.getElementById('previewBlock');
+  const copyBtn = document.getElementById('copyBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const copyToast = document.getElementById('copyToast');
+  const photoReminder = document.getElementById('photoReminder');
+
+  let selectedFile = null;
+
+  photoInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    selectedFile = file;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      previewImg.src = ev.target.result;
+      photoPreview.style.display = 'block';
+      uploadArea.style.display = 'none';
+      photoMetaGroup.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  removePhotoBtn.addEventListener('click', function() {
+    selectedFile = null;
+    photoInput.value = '';
+    previewImg.src = '';
+    photoPreview.style.display = 'none';
+    uploadArea.style.display = 'block';
+    photoMetaGroup.style.display = 'none';
+    document.getElementById('photoMeta').value = '';
+  });
+
+  ['dragover', 'dragenter'].forEach(evt => {
+    uploadArea.addEventListener(evt, function(e) {
+      e.preventDefault();
+      uploadArea.classList.add('drag-over');
+    });
+  });
+  ['dragleave', 'drop'].forEach(evt => {
+    uploadArea.addEventListener(evt, function(e) {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+    });
+  });
+  uploadArea.addEventListener('drop', function(e) {
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      photoInput.files = dt.files;
+      photoInput.dispatchEvent(new Event('change'));
+    }
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('senderName').value.trim();
+    const msg = document.getElementById('blessingMsg').value.trim();
+    const photoMeta = document.getElementById('photoMeta').value.trim();
+
+    if (!name || !msg) return;
+
+    let previewHTML = '';
+    previewHTML += '<div class="preview-name">🧑 ' + escapeHTML(name) + '</div>';
+    previewHTML += '<div class="preview-msg">💬 ' + escapeHTML(msg) + '</div>';
+
+    if (selectedFile) {
+      previewHTML += '<img class="preview-photo-img" src="' + previewImg.src + '" alt="photo">';
+    }
+    if (photoMeta) {
+      previewHTML += '<div class="preview-photo-info">📸 ' + escapeHTML(photoMeta) + '</div>';
+    }
+
+    previewBlock.innerHTML = previewHTML;
+
+    if (selectedFile) {
+      photoReminder.classList.add('visible');
+    } else {
+      photoReminder.classList.remove('visible');
+    }
+
+    successOverlay.classList.add('visible');
+  });
+
+  copyBtn.addEventListener('click', function() {
+    const name = document.getElementById('senderName').value.trim();
+    const msg = document.getElementById('blessingMsg').value.trim();
+    const photoMeta = document.getElementById('photoMeta').value.trim();
+
+    let text = '【送别 Tiffany · 祝福留言】\n';
+    text += '—————————————\n';
+    text += '来自：' + name + '\n\n';
+    text += '祝福：' + msg + '\n';
+
+    if (photoMeta) {
+      text += '\n📸 照片说明：' + photoMeta + '\n';
+    }
+    if (selectedFile) {
+      text += '\n（附有照片，请查收）\n';
+    }
+    text += '—————————————';
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+
+    function fallbackCopy() {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast();
+      } catch (err) {
+        alert('复制失败，请手动长按选择文字复制');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function showToast() {
+      copyToast.classList.add('show');
+      setTimeout(function() {
+        copyToast.classList.remove('show');
+      }, 1800);
+    }
+  });
+
+  closeBtn.addEventListener('click', function() {
+    successOverlay.classList.remove('visible');
+  });
+
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+})();
+</script>
+
+</body>
+</html>
